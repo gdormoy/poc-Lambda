@@ -20,7 +20,7 @@ jobs:
           pip install -r requirements.txt
       - name: Test with Nose
         run: |
-          nosetests get-user/tests/unit/
+          nosetests tests/unit/
 
       - name: 'Unit testing'
         uses: ./.github/actions/aws-sam-cli-action
