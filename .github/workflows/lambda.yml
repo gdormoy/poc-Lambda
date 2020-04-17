@@ -1,0 +1,15 @@
+name: Lambda-aws-sam-CI
+
+on:
+  push:
+    branches-ignore: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-18.04
+    
+    steps:
+      - name: 'step1'
+        uses: ./.github/actions/aws-sam-cli-action
+        with:
+          - who-to-greet: "Guillaume"
