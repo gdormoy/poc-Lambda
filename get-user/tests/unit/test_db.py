@@ -19,14 +19,9 @@ class TestStringMethods(unittest.TestCase):
         self.cursor = self.db.cursor()
 
     def tearDown(self):
-        query = "DELETE FROM `User`"
-        self.cursor.execute(query)
-        self.db.commit()
         self.cursor.close()
 
-    def test_insert(self):
-        query = "INSERT INTO `User`(`Username`, `Password`) VALUES(%s, %s)"
-        args = ('toto', 'tata')
-        res = self.cursor.execute(query, args)
-        self.db.commit()
-        self.assertEqual(res, 1)
+    def test_select(self):
+        query = "SELECT * FROM User"
+        res = self.cursor.execute(query)
+        self.assertEqual(res, 0)
